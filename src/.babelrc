@@ -1,0 +1,9 @@
+{
+	"presets": ["@babel/preset-env", "mobx"],
+	"plugins": ["@babel/plugin-transform-runtime", ["component", 
+		{
+		  "libraryName": "mint-ui",
+		  "style": true
+		}
+	  ]]
+}
