@@ -20,6 +20,10 @@ Vue.use(VueRourer)
 // 1.3 导入 自己的 Router.js 路由模块
 import router from "./router.js"
 
+//2.1 导入并安装 vue-resource
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 
 var vm = new Vue({
 	el: '#app',
