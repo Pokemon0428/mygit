@@ -4,10 +4,11 @@ import Vue from 'vue'
 
 import app from './App.vue'
 
-import { Header, Swipe, SwipeItem } from 'mint-ui'
+import { Header, Swipe, SwipeItem, Button } from 'mint-ui'
 Vue.component( Header.name, Header)
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 //导入 MUI 样式
 import './lib/mui/css/mui.min.css'
@@ -19,10 +20,17 @@ import VueRourer from 'vue-router'
 Vue.use(VueRourer)
 // 1.3 导入 自己的 Router.js 路由模块
 import router from "./router.js"
+// 导入时间插件
+import moment from "moment"
+Vue.filter("dateFormat", function(dataStr, pattern=" YYYY-MM-DD HH:MM:SS"){
+	return moment(dataStr).format(pattern)
+})
 
 //2.1 导入并安装 vue-resource
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+// 请求的全局根路径
+Vue.http.options.root = "http://www.liulongbin.top:3005"
 
 
 var vm = new Vue({
