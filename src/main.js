@@ -14,6 +14,10 @@ import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
 Vue.use(MintUI)
 
+//安装图片预览插件
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
 //导入 MUI 样式
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
