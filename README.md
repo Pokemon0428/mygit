@@ -22,3 +22,17 @@
 ##获取所有的评论数据
 
 ##实现点击加载更多的事件
+
+##实现发表评论
+
+##改造图片分享按钮
+
+##绘制 图片列表 组件页面结构
+
+##制作顶部滑动条的坑
+1. 
+1. 我们在初始化 滑动条 的时候，导入的mui.js， 但是控制台报错：ncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+ + 经过我们合理的推测， 可能是 mui.js 中 用到了 'caller', 'callee', and 'arguments' 等东西， 但是 bundle.js 中，默认启用严格模式， 所以这两者冲突了
+ + 解决方案：
+    1. 把 mui.js 中的 非严格 模式的代码改掉，但是不现实;
+    2. 把 webpack 打包时的严格模式禁用掉

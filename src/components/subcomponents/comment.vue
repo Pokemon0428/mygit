@@ -2,8 +2,8 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请输入要BB的内容(最多120字)"></textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <textarea placeholder="请输入要BB的内容(最多120字)" v-model="msg"></textarea>
+        <mt-button type="primary" size="large" @click="postComments">发表评论</mt-button>
 
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item, i) in comments" :key="item.add_time">
@@ -28,7 +28,8 @@ export default {
     data(){
         return {
             pageindex : 1,  //默认展示第一页
-            comments: []
+            comments: [],
+            msg: ''  //发表的评论
         }
     },
     created(){
@@ -49,6 +50,25 @@ export default {
         getMore(){
             this.pageindex += 1;
             this.getComments();
+        },
+        postComments(){
+
+            if(this.msg.trim().length === ''){
+                return Toast('评论不能为空！')
+            }
+
+            this.$http.post('api/postcomment/' + this.id, { content:this.msg.trim()})
+            .then( result => {
+                if(result.body.status === 0){
+                    var cmt = {
+                        user_name: '匿名用户',
+                        add_time: Date.now(),
+                        content: this.msg.trim()
+                    }
+                    this.comments.unshift(cmt);
+                    this.msg = '';
+                }
+            })
         }
     },
     props: ["id"]

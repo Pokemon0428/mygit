@@ -4,11 +4,15 @@ import Vue from 'vue'
 
 import app from './App.vue'
 
-import { Header, Swipe, SwipeItem, Button } from 'mint-ui'
-Vue.component( Header.name, Header)
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+// import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui'
+// Vue.component( Header.name, Header)
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// Vue.use(Lazyload);
+import 'mint-ui/lib/style.css'
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
 
 //导入 MUI 样式
 import './lib/mui/css/mui.min.css'

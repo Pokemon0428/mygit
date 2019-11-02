@@ -1,9 +1,10 @@
 {
 	"presets": ["@babel/preset-env", "mobx"],
-	"plugins": ["@babel/plugin-transform-runtime", ["component", 
+	"plugins": [["component", 
 		{
 		  "libraryName": "mint-ui",
 		  "style": true
 		}
-	  ]]
+	  ], "transform-remove-strict-mode"],
+	"ignore": ["./src/lib/mui/js/mui.min.js", "./src/lib/mui/js/mui.min.js"]
 }
