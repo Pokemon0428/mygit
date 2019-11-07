@@ -61,6 +61,7 @@
 <script>
 import swipe from '../subcomponents/swiper.vue'
 import numberbox from '../subcomponents/goodsinfo_numberbox.vue'
+import { stringify } from 'querystring';
 export default {
     data(){
         return {
@@ -105,6 +106,12 @@ export default {
         },
         addShopToCar(){
             this.ballFlag = !this.ballFlag;
+            // { id:商品id, count:商品数量, price: 商品单价, selected: 是否被选中 }
+            // 拼接出一个 要保存到 store 中 car 数组 的商品信息对象
+            var sharedata = { id: this.id, count: this.selectedcount, price: this.goodsinfo.sell_price, selected: true};
+
+            this.$store.commit("addToCar", sharedata)
+
         },
         beforeEnter(el){
             el.style.transform = "translate(0, 0)";
