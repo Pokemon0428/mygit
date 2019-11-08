@@ -36,7 +36,7 @@ module.exports = {
 		}),
 		new VueLoaderPlugin()
 	],
-	module:{//这个节点用于配置 所有第三忙模块 加载器
+	module:{//这个节点用于配置 所有第三方模块 加载器
 		rules:[//所有第三方模块的匹配规则
 			{ test: /\.css$/, use: ['style-loader', 'css-loader']},//配置处理css文件的第三方文件
 			{ test: /\.less$/, use: ['style-loader', 'css-loader', 'less-loader']},//配置处理less文件的第三方文件
